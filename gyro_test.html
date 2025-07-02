@@ -1,0 +1,34 @@
+<!-- src/gyro_test.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Gyro & Accel Test</title>
+    <style>
+        body { font-family: sans-serif; padding: 1rem; }
+        p { margin-bottom: 1rem; font-size: 1.2rem; }
+        button { font-size: 1rem; padding: 0.5rem 1rem; }
+    </style>
+</head>
+<body>
+    <h1>Gyroscope & Accelerometer Test</h1>
+    <button id="start-button">Start Sensors</button>
+
+    <h2>Gyroscope</h2>
+    <p id="gyro-output">Spin angle: 0°</p>
+    <p id="gyro-status">Status: Waiting...</p>
+
+    <h2>Accelerometer</h2>
+    <p id="accel-output">Waiting for motion...</p>
+
+    <script type="module">
+        import { startGyro } from './src/gyro.js';
+        import { startAccel } from './src/accel.js';
+
+        document.getElementById("start-button").addEventListener("click", () => {
+            startGyro();
+            startAccel();
+        });
+    </script>
+</body>
+</html>
